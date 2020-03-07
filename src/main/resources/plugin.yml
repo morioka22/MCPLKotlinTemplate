@@ -1,0 +1,8 @@
+name: MCPLKotlinTemplate
+version: 1.0
+main: mc.mec.mcplkotlintemplate.Sample
+api-version: 1.13
+author: Mr_El_Capitan
+commands:
+  kotlin:
+    default: op
