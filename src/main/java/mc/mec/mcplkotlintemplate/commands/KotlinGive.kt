@@ -8,7 +8,6 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 object KotlinGive : CommandExecutor {
-    private const val _prefix: String = "§b[Sample]"
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         (sender as? Player)?.inventory?.addItem(ItemStack(Material.STONE))
         if ((sender as? Player) != null) {
