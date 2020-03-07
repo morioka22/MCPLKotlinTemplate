@@ -6,3 +6,5 @@ author: Mr_El_Capitan
 commands:
   kotlin:
     default: op
+  kotlingive:
+    default: op

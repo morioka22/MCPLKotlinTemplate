@@ -1,5 +1,7 @@
 package mc.mec.mcplkotlintemplate
 
+import mc.mec.mcplkotlintemplate.commands.Kotlin
+import mc.mec.mcplkotlintemplate.commands.KotlinGive
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
@@ -11,34 +13,17 @@ import org.bukkit.event.player.PlayerQuitEvent
 
 class MCPLKotlinTemplate : JavaPlugin() {
 
-    var _prefix = "§b[Sample]"
+    private val _prefix: String = "§b[Sample]"
 
     override fun onEnable() {
         // Plugin startup logic
+        getCommand("kotlin")?.setExecutor(Kotlin)
+        getCommand("kotlingive")?.setExecutor(KotlinGive)
+        EventListener(this)
         logger.info("Hello KT!")
     }
 
     override fun onDisable() {
         // Plugin shutdown logic
-    }
-
-    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if (sender !is Player) return false
-
-        if (!sender.hasPermission("sample.cmd")) return false
-
-        sender.sendMessage("$_prefix |ω・｀)ﾉ ﾔｧ")
-        sender.sendMessage("$_prefix This code was written in Kotlin.")
-        return false
-    }
-
-    @EventHandler
-    fun onPlayerJoin(e: PlayerJoinEvent) {
-        Bukkit.broadcastMessage("${e.player.displayName} がゲームに参加しました。")
-    }
-
-    @EventHandler
-    fun onPlayerQuit(e: PlayerQuitEvent) {
-        Bukkit.broadcastMessage("${e.player.displayName} がゲームから退出しました。")
     }
 }
